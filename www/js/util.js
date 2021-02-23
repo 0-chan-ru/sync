@@ -1746,8 +1746,8 @@ function undoHDLayout() {
       .appendTo("#playlistrow");
 
     $("nav").addClass("navbar-fixed-top");
-    $("#mainpage").css("padding-top", "60px");
-    $("#queue").css("max-height", "500px");
+    $("#mainpage").css("padding-top", "40px");
+    $("#queue").css("max-height", "450px");
     $("#messagebuffer, #userlist").css("max-height", "");
 }
 
@@ -1758,7 +1758,7 @@ function compactLayout() {
         $("#chatwrap").detach().insertBefore($("#videowrap"));
         $("#leftcontrols").detach().insertBefore($("#rightcontrols"));
         $("#leftpane").detach().insertBefore($("#rightpane"));
-        $("#userlist").css("float", "left");
+        //$("#userlist").css("float", "left");
         if($("#userlisttoggle").hasClass("glyphicon-chevron-left")){
             $("#userlisttoggle").removeClass("glyphicon-chevron-left").addClass("glyphicon-chevron-right")
         }
@@ -1801,7 +1801,7 @@ function synchtubeLayout() {
     $("#videowrap").detach().insertBefore($("#chatwrap"));
     $("#rightcontrols").detach().insertBefore($("#leftcontrols"));
     $("#rightpane").detach().insertBefore($("#leftpane"));
-    $("#userlist").css("float", "right");
+    //$("#userlist").css("float", "right");
     $("body").addClass("synchtube");
 }
 
@@ -1904,7 +1904,7 @@ function handleWindowResize() {
         var h = $("body").outerHeight() - $("#chatline").outerHeight() -
                 $("#chatheader").outerHeight();
         $("#messagebuffer").outerHeight(h);
-        $("#userlist").outerHeight(h);
+        //$("#userlist").outerHeight(h);
         return;
     } else {
         handleVideoResize();
@@ -1924,7 +1924,7 @@ function handleVideoResize() {
         var responsiveFrame = $("#ytapiplayer").parent();
         var height = responsiveFrame.outerHeight() - $("#chatline").outerHeight() - 2;
         $("#messagebuffer").height(height);
-        $("#userlist").height(height);
+        //$("#userlist").height(height);
 
         $("#ytapiplayer").attr("height", VHEIGHT = responsiveFrame.outerHeight());
         $("#ytapiplayer").attr("width", VWIDTH = responsiveFrame.outerWidth());

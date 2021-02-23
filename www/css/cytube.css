@@ -24,21 +24,25 @@
 
 #messagebuffer {
     width: auto;
+	min-height: 300px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 #userlist {
-    width: 120px;
-    float: left;
-    border-right: 0;
+    /*width: 120px;
+    float: left;*/
+    /*border-right: 0;*/
+	border-bottom: 0 !important;
     font-size: 9pt;
     list-style: none outside none;
-    padding: 0;
+    /*padding: 0;*/
+	padding: 2px 5px !important;
+	font-size: 14px;
 }
 
-#messagebuffer, #userlist {
-    height: 329px;
+#messagebuffer/*, #userlist*/ {
+    /*height: 329px;*/
     overflow-x: hidden;
     overflow-y: scroll;
     margin-bottom: 0;
@@ -270,7 +274,20 @@ li.ui-sortable-helper, li.ui-sortable-placeholder + li.queue_entry {
 
 .userlist_item {
     cursor: pointer;
+    display: inline-block;
+	margin-left: 10px;
 }
+.userlist_item:first-child {
+	margin-left: 0px;
+}
+/*
+.userlist_item:before {
+	content: ", ";
+}
+.userlist_item:first-child:before {
+	content: "";
+}
+*/
 
 .userlist_siteadmin {
     color: #cc0000!important;
@@ -683,6 +700,7 @@ input#logout[type="submit"]:hover {
 
 #resize-video-larger, #resize-video-smaller {
     float: right;
+	margin: 0 5px;
 }
 
 body.hd #resize-video-larger, body.hd #resize-video-smaller {
