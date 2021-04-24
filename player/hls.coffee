@@ -19,5 +19,9 @@ window.HLSPlayer = class HLSPlayer extends VideoJSPlayer
                 {
                     link: data.id
                     contentType: 'application/x-mpegURL'
+                },
+                {
+                    link: data.id
+                    contentType: 'application/vnd.apple.mpegurl'
                 }
             ]

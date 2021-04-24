@@ -334,8 +334,9 @@ function queue(pos, src) {
 
     if (src === "customembed") {
         var title = $("#customembed-title").val();
+
         if (!title) {
-            title = false;
+            title = $("#addfromurl-title-val").val() || false;
         }
         var content = $("#customembed-content").val();
 
@@ -381,7 +382,7 @@ function queue(pos, src) {
             }
 
             var duration = undefined;
-            var title = undefined;
+            var title = $("#addfromurl-title-val").val() || undefined;
             if (data.type === "fi") {
                 if (data.id.match(/^http:/)) {
                     Callbacks.queueFail({
@@ -470,7 +471,8 @@ $("#mediaurl").keyup(function(ev) {
     } else {
         var editTitle = false;
         try {
-            if (parseMediaLink($("#mediaurl").val()).type === "fi") {
+            var media_type = parseMediaLink($("#mediaurl").val()).type;
+            if (media_type === "fi" || media_type === "hl") {
                 editTitle = true;
             }
         } catch (error) {

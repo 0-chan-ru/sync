@@ -425,9 +425,19 @@ var Getters = {
             );
             return;
         }
-        var title = "Livestream";
-        var media = new Media(id, title, "--:--", "hl");
-        callback(false, media);
+
+		// Trying to get duration using ffmpeg
+        ffmpeg.query(id, function (err, data) {
+			if (!data) {
+				data = {};
+			}
+
+			var title = data.title || "Livestream";
+			var duration = data.duration || "--:--";
+			var media = new Media(id, title, duration, "hl");
+
+			callback(false, media);
+        });
     },
 
     /* imgur.com albums */

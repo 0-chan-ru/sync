@@ -21,6 +21,7 @@ const SOURCE_QUALITIES = new Set([
 const SOURCE_CONTENT_TYPES = new Set([
     'application/dash+xml',
     'application/x-mpegURL',
+    'application/vnd.apple.mpegurl',
     'audio/aac',
     'audio/ogg',
     'audio/mpeg',

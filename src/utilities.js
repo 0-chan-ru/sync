@@ -231,7 +231,6 @@
             case "cu":
             case "im":
             case "hb":
-            case "hl":
             case "mx":
                 return true;
             default:

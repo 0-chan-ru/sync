@@ -208,7 +208,7 @@ function testUrl(url, cb, params = { redirCount: 0, cookie: '' }) {
                 return cb(translateStatusCode(res.statusCode));
             }
 
-            if (!/^audio|^video/.test(res.headers["content-type"])) {
+            if (!/^audio|^video|^application/.test(res.headers["content-type"])) {
                 cb("Could not detect a supported audio/video type.  See " +
                    "https://git.io/fjtOK for a list of supported providers.  " +
                    "(Content-Type was: '" + res.headers["content-type"] + "')");
@@ -526,7 +526,7 @@ exports.query = function (filename, cb) {
                 cb(null, data);
             } else {
                 return cb("File did not contain an acceptable codec.  See " +
-                          "https://git.io/vrE75 for details.");
+                          "https://git.io/vrE75 for details.", data);
             }
         });
     }));

@@ -397,9 +397,9 @@ PlaylistModule.prototype.handleQueue = function (user, data) {
 
     /**
      * Specifying a custom title is currently only allowed for custom media
-     * and raw files
+     * and raw files and HLS
      */
-    if (typeof data.title !== "string" || (data.type !== "cu" && data.type !== "fi")) {
+    if (typeof data.title !== "string" || (data.type !== "cu" && data.type !== "fi" && data.type !== "hl")) {
         data.title = false;
     }
 
@@ -422,7 +422,7 @@ PlaylistModule.prototype.handleQueue = function (user, data) {
             id: id
         });
         return;
-    } else if (util.isLive(type) && !perms.canAddLive(user)) {
+    } else if ((util.isLive(type) || type === "hl") && !perms.canAddLive(user)) {
         user.socket.emit("queueFail", {
             msg: "You don't have permission to add live media",
             link: link,
@@ -1000,7 +1000,7 @@ PlaylistModule.prototype._addItem = function (media, data, user, cb) {
         queueby: data.queueby
     });
 
-    if (data.title && (media.type === "cu" || media.type === "fi")) {
+    if (data.title && (media.type === "cu" || media.type === "fi" || media.type === "hl")) {
         media.setTitle(data.title);
     }
 
